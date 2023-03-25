@@ -1,0 +1,55 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="float: right;">
+                            <a href="{% url 'add_grade' %}" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</a>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead class="table-info text-primary text-center">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã lớp</th>
+                                    <th>Tên lớp</th>
+                                    <th>Khóa</th>
+                                    <th>Ngành</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for grade in grades %}
+                                <tr>
+                                    <td class="text-center">{{ forloop.counter }}</td>
+                                    <td>{{grade.id}}</td>
+                                    <td><a href="{% url 'list_student' grade.id %}">{{grade.name}}</a></td>
+                                    <td class="text-center">{{ grade.course }}</td>
+                                    <td>{{grade.major.name}}</td>
+                                    <td class="text-center">
+                                        <a href="{% url 'edit_grade' grade.id %}" class="btn btn-info"><i class="far fa-edit"></i> Sửa</a> -
+                                        <a href="{% url 'delete_grade' grade.id %}" onclick="return confirm('Bạn có chắc chắn muốn xóa lớp {{grade.name}}?')" class="btn btn-danger"><i class="far fa-trash-alt"></i> Xóa</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                             {% for student in st %}
+                            {{ student }}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

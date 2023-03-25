@@ -1,0 +1,109 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{ page_title }}{% endblock page_title %}
+
+{% block content %}
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div style="float: right;">
+                                <a href="{% url 'add_staff' %}" class="btn btn-success">
+                                    <i class="fas fa-user-plus"></i> Thêm</a>
+                                <a href="{% url 'upload_staff' %}" class="btn btn-success">
+                                    <i class="fas fa-upload"></i> Import</a>
+                            </div>
+                            <div>
+                                <form method="get">{{ filter.form }}
+                                    <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i>Tìm kiếm
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body" style="overflow-x:auto;">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead class="table-info text-primary text-center">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Ảnh</th>
+                                    <th>Mã số cán bộ</th>
+                                    <th>Họ tên</th>
+                                    <th>Giới tính</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Nơi sinh</th>
+                                    <th>Trình độ</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Email</th>
+                                    <th>Bộ môn</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for staff in t %}
+                                    <tr>
+                                        <td class="text-center">{{ forloop.counter }}</td>
+                                        <td>
+                                            {% if staff.profile_pic == "" %}
+                                                Không có hình ảnh
+                                            {% else %}
+                                                <img class="img img-fluid mb-2" height="100" width="100"
+                                                     src="{{ staff.profile_pic.url }}" alt="">
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ staff.admin_id }}</td>
+                                        <td>{{ staff.last_name }} {{ staff.first_name }}</td>
+                                        <td>{{ staff.gender }}</td>
+                                        <td>{{ staff.dob|date:"d/m/Y" }}</td>
+                                        <td>{{ staff.pob }}</td>
+                                        <td>{{ staff.level }}</td>
+                                        <td>{{ staff.number }}</td>
+                                        <td>{{ staff.address }}</td>
+                                        <td>{{ staff.admin.email }}</td>
+                                        <td>{{ staff.department.name }}</td>
+                                        <td>
+                                            <a href="{% url 'edit_staff' staff.admin_id %}" class="btn btn-info"><i
+                                                    class="far fa-edit"></i> Sửa</a> -
+                                            <a href="{% url 'delete_staff' staff.admin_id %}" class="btn btn-danger"
+                                               onclick="return confirm('Bạn có chắc chắn muốn xóa {{ staff.staff.last_name }} {{ staff.staff.first_name }}?')"><i
+                                                    class="far fa-trash-alt"></i> Xóa</a>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    {% if t.has_previous %}
+                                        <li class="page-item"><a class="page-link" href="?page=1">&laquo Đầu</a></li>
+                                        <li class="page-item"><a class="page-link"
+                                                                 href="?page={{ t.previous_page_number }}">Trước</a>
+                                        </li>
+                                    {% endif %}
+                                    {% for i in nums %}
+                                        <li class="page-item"><a class="page-link"
+                                                                 href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+                                        </li>
+                                    {% endfor %}
+                                    {#                        <li class="page-item disabled"><a href="#" class="page-link"> Trang {{ s.number }} của {{ s.paginator.num_pages }}</a></li>#}
+                                    {% if t.has_next %}
+                                        <li class="page-item"><a class="page-link"
+                                                                 href="?page={{ t.next_page_number }}">Tiếp</a></li>
+                                        <li class="page-item"><a class="page-link"
+                                                                 href="?page={{ t.paginator.num_pages }}">Cuối
+                                            &raquo</a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

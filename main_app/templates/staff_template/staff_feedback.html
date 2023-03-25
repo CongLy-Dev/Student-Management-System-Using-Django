@@ -1,0 +1,57 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">{{page_title}}</h3>
+                    </div>
+
+                    {% include "main_app/form_template.html" with messages=messages  form=form button_text="Gửi"%}
+                </div>
+                <!-- /.card -->
+<div class="card card-dark">
+    <div class="card-header"><h3 class="card-title">{{page_title}}</h3>
+    </div>
+   <div class="table p-2">
+
+       <table class="table table-bordered">
+       <thead class="text-center">
+           <tr>
+               <th>STT</th>
+               <th>Nội dung đánh giá</th>
+               <th>Nội dung phản hồi</th>
+            <th>Thời gian</th>
+        </tr>
+           </thead>
+        {% for feedback in feedbacks %}
+        <tr>
+            <td class="text-center">{{forloop.counter}}</td>
+            <td>{{feedback.feedback}}</td>
+              <td>
+                  
+                  {% if feedback.reply == "" %}
+                      <p class="badge badge-warning">Đang đợi phản hồi</p>
+                      {% else %}
+                      {{feedback.reply}}
+                  {% endif %}
+                      
+              </td>
+              <td>{{feedback.created_at|date:"d/m/Y H:i"}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

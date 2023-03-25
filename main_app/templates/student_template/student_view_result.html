@@ -1,0 +1,64 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements -->
+       
+                <!-- /.card -->
+<div class="card">
+    <div class="card-header"><h3 class="card-title">{{page_title}}</h3>
+    </div>
+   <div class="table p-2">
+
+       <table class="table table-bordered">
+       <thead class="table-info text-center">
+           <tr>
+               <th class="text-center">STT</th>
+               <th>Mã học phần</th>
+               <th>Tên học phần</th>
+               <th>Nhóm</th>
+               <th>Số tín chỉ</th>
+               <th>Điểm chữ</th>
+               <th>Điểm số</th>
+        </tr>
+       </thead>
+        {% for result in results %}
+        <tr>
+            <td class="text-center">{{forloop.counter}}</td>
+            <td>{{ result.subject.id }}</td>
+            <td>{{ result.subject.name }}</td>
+            <td>{{ session.assign.group }}</td>
+            <td class="text-center">{{ result.subject.credit }}</td>
+            <td class="text-center">{{ result.score_character }}</td>
+            <td class="text-center">{{ result.exam }}</td>
+            </tr>
+            {% endfor %}
+       {% for s in query %}
+               <tr>
+                   <td class="text-center" colspan="2">Điểm trung bình: {{ s.result }}</td>
+               </tr>
+       {% endfor %}
+        </table>
+    </div>
+    </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <script>
+        const d = document.getElementById('diemso').innerHTML*1;
+        console.log(d);
+        let t;
+        if (d >= 4) {
+            t = "*";
+        }
+        else t = ""
+        document.getElementById("tichluy").innerHTML = t;
+    </script>
+{% endblock content %}

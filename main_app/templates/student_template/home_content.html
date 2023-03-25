@@ -1,0 +1,365 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+{% block content %}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row mb-3">
+    <div class="col-lg-12 col-xl-12">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow" style="padding-bottom: 0px;margin-bottom: 15px;">
+                    <div class="card-header py-3">
+                        <h3 class="fs-3 text-primary" style="font-weight: bold;margin-bottom: 0px;">Thông tin sinh viên</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-4 text-center align-self-center"><img class="img-thumbnail img-fluid" src="{{ user.student.profile_pic.url }}" width="142" height="189" />
+                                <div>
+                                <a href="/student/view/profile/" class="text-primary" style="margin-bottom: 0px;margin-top: 7px;">Xem chi tiết</a>
+                            </div>
+                                </div>
+                            <div class="col align-self-center">
+                                <form class="text-dark">
+                                    <div class="row" style="margin-bottom: 20px;">
+                                        <div class="col"><span>Mã số sinh viên: <strong>{{ user.id }}</strong></span></div>
+                                        <div class="col"><span>Lớp: <strong>{{ user.student.grade.name }}</strong></span></div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 20px;">
+                                        <div class="col"><span>Họ tên: <strong>{{ user.student.last_name }} {{ user.student.first_name }}</strong></span></div>
+                                        <div class="col"><span>Khóa: <strong>{{ user.student.grade.course }}</strong></span></div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 20px;">
+                                        <div class="col"><span>Giới tính: <strong>{{ user.student.gender }}</strong></span></div>
+                                        <div class="col"><span>Ngành: <strong>{{ user.student.major.name }}</strong></span></div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 20px;">
+                                        <div class="col"><span>Ngày sinh: <strong>{{ user.student.dob|date:"d/m/Y" }}</strong></span></div>
+                                        <div class="col"><span>Số điện thoại: <strong>{{ user.student.number }}</strong></span></div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 0px;">
+                                        <div class="col"><span>Nơi sinh: <strong>{{ user.student.pob }}</strong></span></div>
+                                        <div class="col"><span>Địa chỉ: <strong>{{ user.student.address }}</strong></span></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div class="row">
+    <div class="col-lg col-6">
+        <div class="card">
+            <a href="/student/view/profile/" class="card-body text-center shadow"><svg class="bi bi-person-lines-fill fs-1 text-primary" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" style="font-size: 63px;">
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"></path>
+                </svg>
+                <p  style="color: var(--bs-black);margin-bottom: 0px;">Thông tin sinh viên</p>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg col-6">
+        <div class="card">
+            <a href="/student/view/result/" class="card-body text-center shadow"><svg class="bi bi-pencil-square fs-1 text-primary" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" style="font-size: 63px;">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+                </svg>
+                <p style="color: var(--bs-black);margin-bottom: 0px;">Kết quả học tập</p>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg col-6">
+        <div class="card">
+            <a href="/student/view/fee/" class="card-body text-center shadow"><svg class="bi bi-currency-dollar fs-1 text-primary" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" style="font-size: 63px;">
+                    <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"></path>
+                </svg>
+                <p style="color: var(--bs-black);margin-bottom: 0px;">Thông tin học phí</p>
+            </a>
+        </div>
+    </div>
+        </div>
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>{{total_attendance}}</h3>
+
+                        <p>Điểm danh</p>
+                    </div>
+                    <div class="icon">
+                      <i class="nav-icon fas fa-calendar-alt"></i>
+                    </div>
+                    {# <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> #}
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>{{ percent_present }}<sup style="font-size: 20px">%</sup></h3>
+
+                        <p>Tỉ lệ có mặt</p>
+                    </div>
+                    <div class="icon">
+                      <i class="nav-icon fas fa-calendar-check"></i>
+                    </div>
+                    {# <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> #}
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>{{percent_absent}}<sup style="font-size: 20px">%</sup></h3>
+
+                        <p>Tỉ lệ vắng mặt</p>
+                    </div>
+                    <div class="icon">
+                      <i class="nav-icon fas fa-calendar-minus"></i>
+                    </div>
+                    {# <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> #}
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>{{total_subject}}</h3>
+
+                        <p>Tổng số môn</p>
+                    </div>
+                    <div class="icon">
+                      <i class="nav-icon fas fa-book"></i>
+                    </div>
+                    {# <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> #}
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+           
+                        <!-- DONUT CHART -->
+                        <div class="card card-secondary">
+                          <div class="card-header">
+                            <h3 class="card-title">Tỉ lệ điểm danh (%)</h3>
+            
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <canvas id="attendanceData" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+            </div>
+                  
+            <div class="col-lg-6">
+            
+                        <div class="card card-secondary">
+                          <div class="card-header">
+                            <h3 class="card-title">Điểm danh mỗi học phần</h3>
+            
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="chart">
+                              <canvas id="attendanceStatistics" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                          <!-- /.card-body -->
+                        <!-- /.card -->
+                        </div> 
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>  
+                        </section>
+{% endblock content %}
+
+{% block custom_js %}
+  <script>
+$(document).ready(function(){
+
+    //Dataset
+    var subjects = {{data_name|safe}}
+    var data_present = {{data_present}}
+    var data_absent = {{data_absent}}
+
+    //-------------
+    //- DONUT CHART -
+    var attendanceDataCanvas = $('#attendanceData').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+         'Có mặt', 'Vắng mặt'
+      ],
+      datasets: [
+        {
+          data: [{{percent_present}}, {{percent_absent}}],
+          backgroundColor : ['#00a65a','#f56954'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    var attendanceData = new Chart(attendanceDataCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions      
+    });
+
+    //attendanceStatistics
+//Bar Chart
+var areaChartData = {
+    labels  : subjects,
+    datasets: [
+    {
+        label               : 'Có mặt',
+        backgroundColor     : 'rgba(60,141,188,0.9)',
+        borderColor         : 'rgba(60,141,188,0.8)',
+        pointRadius          : false,
+        pointColor          : '#3b8bba',
+        pointStrokeColor    : 'rgba(60,141,188,1)',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgba(60,141,188,1)',
+        data                : data_present
+      },
+
+      {
+        label               : 'Vắng mặt',
+        backgroundColor     : 'rgba(210, 214, 222, 1)',
+        borderColor         : 'rgba(210, 214, 222, 1)',
+        pointRadius         : false,
+        pointColor          : 'rgba(210, 214, 222, 1)',
+        pointStrokeColor    : '#c1c7d1',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgba(220,220,220,1)',
+        data                : data_absent
+      },
+    ]
+  }
+var barChartCanvas = $('#attendanceStatistics').get(0).getContext('2d')
+var barChartData = jQuery.extend(true, {}, areaChartData)
+var temp = areaChartData.datasets[0]
+barChartData.datasets[0] = temp
+var barChartOptions = {
+  responsive              : true,
+  maintainAspectRatio     : false,
+  datasetFill             : false
+}
+
+var barChart = new Chart(barChartCanvas, {
+  type: 'bar', 
+  data: barChartData,
+  options: barChartOptions
+})
+
+ 
+})
+
+  </script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-messaging.js"></script>
+    
+    
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyBarDWWHTfTMSrtc5Lj3Cdw5dEvjAkFwtM",
+                authDomain: "sms-with-django.firebaseapp.com",
+                databaseURL: "https://sms-with-django.firebaseio.com",
+                projectId: "sms-with-django",
+                storageBucket: "sms-with-django.appspot.com",
+                messagingSenderId: "945324593139",
+                appId: "1:945324593139:web:03fa99a8854bbd38420c86",
+                measurementId: "G-2F2RXTL9GT"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig)
+            const messaging = firebase.messaging();
+            function InitializeFireBaseMessaging() {
+                messaging
+                    .requestPermission()
+                    .then(function () {
+                        console.log("Notification Permission");
+                        return messaging.getToken();
+                    })
+                    .then(function (token) {
+                        console.log("Token : " + token);
+                        sendToServer(token);
+                    })
+                    .catch(function (reason) {
+                        console.log(reason)
+                    })
+            }
+            messaging.onMessage(function (payload) {
+                const notificationOption = {
+                    body: payload.notification.body,
+                    icon: payload.notification.icon,
+    
+                }
+                if (Notification.permission == 'granted') {
+                    var notification = new Notification(payload.notification.title, notificationOption);
+                    notification.onclick = function (event) {
+                        event.preventDefault();
+                        window.open(payload.notification.click_action, "_blank");
+                        notification.close();
+                    }
+                }
+                console.log(payload);
+            });
+            messaging.onTokenRefresh(function () {
+                messaging.getToken()
+                    .then(function (newToken) {
+                        console.log("New Token : " + newToken);
+                        sendToServer(newToken);
+  
+                    })
+                    .catch(function (reason) {
+                        console.log(reason)
+                    })
+            })
+    
+            function sendToServer(token){
+              $.ajax({
+                url: "{% url 'student_fcmtoken' %}",
+                type: 'POST',
+                data: {
+                    token: token,
+                }
+            }).done(function (response) {
+               
+      
+               
+            }).fail(function (response) {
+            })
+  
+            }
+            
+            InitializeFireBaseMessaging();
+        </script>
+{% endblock custom_js %}

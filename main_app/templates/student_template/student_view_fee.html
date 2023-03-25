@@ -1,0 +1,103 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{ page_title }}{% endblock page_title %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            var total;
+            var totalfee=0;
+            $('td:nth-child(6)').each(function()
+            {
+            total=$(this).html().replace(/[^0-9]/g, '');
+            totalfee+=parseFloat(total);
+            $('#totfee').text(totalfee.toLocaleString("en") +'đ');
+            });
+        });
+    </script>
+        <script>
+        $(document).ready(function()
+        {
+            var total;
+            var totalcredit=0;
+            $('td:nth-child(5)').each(function()
+            {
+            total=$(this).html().replace(/[^0-9]/g, '');
+            totalcredit+=parseFloat(total);
+            $('#totcre').text(totalcredit.toLocaleString("en"));
+            });
+        });
+    </script>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+
+                    <!-- /.card -->
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">{{ page_title }}</h3>
+                        </div>
+                        <div class="table p-2">
+
+                            <table class="table table-bordered">
+                            <thead class="table-info text-center">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Loại</th>
+                                    <th>Mã học phần</th>
+                                    <th>Tên học phần</th>
+                                    <th>Số tín chỉ</th>
+                                    <th>Số tiền</th>
+
+                                </tr>
+                            </thead>
+                                {% for subject in subjects %}
+                                    <tr>
+                                        <td class="text-center">{{ forloop.counter }}</td>
+                                        <td>{{ subject.subject.type }}</td>
+                                        <td>{{ subject.subject.id }}</td>
+                                        <td>{{ subject.subject.name }}</td>
+                                        <td class="text-center">{{ subject.subject.credit }}</td>
+                                        {% load humanize %}
+                                        <td class="text-right">{{ subject.subject.fee|intcomma }}đ</td>
+                                    </tr>
+                                {% endfor %}
+                                <td colspan="4" class="text-right">Tổng cộng</td>
+                                <td id="totcre" class="text-center"></td>
+                                {% load humanize %}
+                                <td id="totfee" class="text-right"></td>
+                            </table>
+
+                            <td colspan="5" align="left" class="level_1_2" style="border-right:none;border-bottom:none">
+                                <div>- (#): Học phần ngoài khung chương trình đào tạo (HP khác CT).</div>
+                                <div>- (+): Học phần học thi lại (Học lại).</div>
+                                <div>- (1) Học phần khối kiến thức đại cương chung : 352,000đ/1TC, mức miễn giảm :
+                                    335,000 đ/1TC
+                                </div>
+                                <div>- (2) Học phần còn lại, SV thuộc khối ngành V, mức học phí 448,000đ/1TC, mức miễn
+                                    giảm : 428,000 đ/1TC
+                                </div>
+                                <div>- Xem chi tiết mức học phí: <a target="blank" href="https://dfa.ctu.edu.vn/van-ban/cap.html">https://dfa.ctu.edu.vn/van-ban/cap.html</a>
+                                </div>
+                                <b>
+                                    <div><em>- Các SV bằng 2, chậm tiến độ đóng phí bảo hiểm y tế trực tiếp tại Phòng
+                                        Công tác Sinh viên.</em></div>
+
+                                    <div><em>- Các SV thuộc diện được địa phương cấp thẻ BHYT hoặc mua theo hộ gia đình:
+                                        đề nghị sinh viên vào website Phòng CTSV (<a target="_blank" href="https://dsa.ctu.edu.vn">https://dsa.ctu.edu.vn</a>)
+                                        mục hỗ trợ sinh viên Online để trừ tiền BHYT trước khi đóng học phí.</em></div>
+                                </b>
+
+                            </td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

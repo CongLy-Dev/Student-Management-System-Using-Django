@@ -1,0 +1,57 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <h2 class="text-center">DANH SÁCH SINH VIÊN</h2>
+                        <h5 class="text-center">  {% for grade in grades %} Lớp: {{ grade.name }} - Ngành: {{ grade.major.name }} {% endfor %}</h5>
+                        <table id="example2" class="table table-bordered table-hover">
+                                     {% if students %}
+                            <thead class="table-info text-primary text-center">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã số sinh viên</th>
+                                    <th>Họ tên</th>
+                                    <th>Giới tính</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for student in students %}
+                                <tr>
+                                    <td class="text-center">{{ forloop.counter }}</td>
+                                    <td>{{student.admin_id}}</td>
+                                    <td>{{student.last_name}} {{student.first_name}}</td>
+                                    <td>{{student.gender}}</td>
+                                    <td class="text-right">{{student.dob|date:"d/m/Y"}}</td>
+                                    <td>{{student.number}}</td>
+                                    <td>{{student.address}}</td>
+                                    <td>{{student.admin.email}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        {% else %}
+                            <a class="text-center">Không có sinh viên</a>
+                        {% endif %}
+                            </table>
+                            </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

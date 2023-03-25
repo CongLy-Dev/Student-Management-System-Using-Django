@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredPackages">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="PyAudio" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="speech_recognition" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="requirements.DuplicatedInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="requirements.InstalledPackageInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="requirements.MergeExtrasInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="requirements.ReferenceExistsInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="requirements.UninstalledPackageInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="requirements.UnusedInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+  </profile>
+</component>

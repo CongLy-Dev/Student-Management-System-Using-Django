@@ -1,0 +1,92 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{ page_title }}{% endblock page_title %}
+
+{% block content %}
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row mb-3">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                        <h3 class="fs-3 text-primary m-0 fw-bold"><strong>Thông tin sinh viên</strong> </h3>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" method="POST">
+                        {% csrf_token %}
+                            <div class="row">
+                                <div class="col-xl-3 align-self-center">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            {% if user.student.profile_pic == "" %}
+                                                <picture>
+                                                    Không có hình ảnh
+                                                    {% else %}
+                                                    <img class="img-thumbnail img-fluid"
+                                                         src="{{ user.student.profile_pic.url }}" width="128" height="167"/></picture>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                        <div class="row" style="margin-bottom: 12px;">
+                                            <div class="col"><span>Mã số sinh viên: <strong>{{ user.id }}</strong></span></div>
+                                            <div class="col"><span>Lớp: <strong>{{ user.student.grade }}</strong></span></div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 12px;">
+                                            <div class="col"><span>Họ và tên: <strong>{{ user.student.last_name }} {{ user.student.first_name }}</strong></span></div>
+                                            <div class="col"><span>Ngành: <strong>{{ user.student.major }}</strong></span></div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 12px;">
+                                            <div class="col"><span>Giới tính: <strong>{{ user.student.gender }}</strong></span></div>
+                                            <div class="col"><span>Khóa: <strong>{{ user.student.grade.course }}</strong></span></div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 12px;">
+                                            <div class="col"><span>Ngày sinh: <strong>{{ user.student.dob|date:"d/m/Y" }}</strong></span></div>
+                                            <div class="col"><span>Email: <strong>{{ user.email }}</strong></span></div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 12px;">
+                                            <div class="col"><span>Nơi sinh: <strong>{{ user.student.pob }}</strong></span></div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 12px;">
+                                            <div class="col"><span>Số điện thoại: <strong>{{ user.student.number }}</strong></span></div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 12px;">
+                                            <div class="col"><span>Địa chỉ: <strong>{{ user.student.address }}</strong></span></div>
+                                            <div class="col"><span>Mật khẩu:{{ form }}</span></div>
+                                        </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block">
+                                {% if button_text %}
+                                    {{ button_text }}
+                                {% else %}
+                                    Cập nhật
+                                {% endif %}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block custom_js %}
+    <script>
+        $(document).ready(function () {
+            var ifNotfied = false;
+            $("#id_password").on("change", function () {
+                if (!ifNotfied) {
+                    ifNotfied = true;
+                    alert("Sau khi cập nhật mật khẩu. Vui lòng đăng nhập lại!")
+                }
+            })
+        })
+    </script>
+{% endblock custom_js %}

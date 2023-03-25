@@ -1,0 +1,73 @@
+{
+  "intents": [
+    {
+      "tag": "Lời chào hỏi",
+      "patterns": [
+        "Xin chào",
+        "Bạn khỏe không?",
+        "Hi",
+        "Có ai ở đây không?",
+        "Hello"
+      ],
+      "responses": [
+        "Xin chào",
+        "Xin chào, mình có thể giúp gì cho bạn?",
+        "Xin chào, bạn cần mình giúp gì ạ?"
+      ]
+    },
+    {
+      "tag": "Lời tạm biệt",
+      "patterns": ["Bye bye", "Hẹn gặp lại nhé", "Tạm biệt"],
+      "responses": [
+        "Hẹn gặp lại bạn!",
+        "Rất vui khi được hỗ trợ bạn",
+        "Tạm biệt!!!"
+      ]
+    },
+    {
+      "tag": "Lời cảm ơn",
+      "patterns": ["Cảm ơn nhé", "Cảm ơn bạn", "Cảm ơn rất nhiều"],
+      "responses": ["Rất vui khi được hỗ trợ bạn", "Hông có chi"]
+    },
+    {
+      "tag": "items",
+      "patterns": [
+        "Which items do you have?",
+        "What kinds of items are there?",
+        "What do you sell?"
+      ],
+      "responses": [
+        "We sell coffee and tea",
+        "We have coffee and tea"
+      ]
+    },
+    {
+      "tag": "delivery",
+      "patterns": [
+        "How long does delivery take?",
+        "How long does shipping take?",
+        "When do I get my delivery?"
+      ],
+      "responses": [
+        "Delivery takes 2-4 days",
+        "Shipping takes 2-4 days"
+      ]
+    },
+    {
+      "tag": "Hài hước",
+      "patterns": [
+        "Kể mình nghe chuyện gì vui đi!",
+        "Kể mình nghe cái gì vui vui đi!",
+        "Chuyện vui"
+      ],
+      "responses": [
+        "Không có người phụ nữ xấu, chỉ có người phụ nữ không biết mình…xấu",
+        "Cuộc đời này có luật nhân quả: Khi bạn cho đi thứ gì, bạn sẽ mất toi thứ đó.",
+        "Ăn gì bổ não nhất? Ăn quả lừa.",
+        "Tương lai bạn khóc hay cười, là phụ thuộc vào độ lười của quá khứ.",
+        "Buồn là buồn nhiều khi không thèm nói. Buồn là buồn nhiều lúc nói như điên. Buồn là buồn nhiều khi điên là hú. Buồn là buồn nhiều lúc hú như điên.",
+        "Thà để mồ hôi rơi trên trang vở, còn hơn vỡ tuyến lệ trong lúc làm bài thi."
+      ]
+    }
+  ]
+}

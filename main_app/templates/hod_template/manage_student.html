@@ -1,0 +1,110 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+
+
+
+                        <div style="float: right;">
+
+                            <a href="{% url 'add_student' %}" class="btn btn-success">
+                                <i class="fas fa-user-plus"></i> Thêm</a>
+                            <a href="{% url 'upload_view' %}" class="btn btn-success">
+                                <i class="fas fa-upload"></i> Import</a>
+
+                        </div>
+                          <div>
+                              <form method="get">{{ filter.form }} <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i>Tìm kiếm</button></form>
+                          </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body " style="overflow-x:auto;">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead class="table-info text-primary text-center">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Ảnh</th>
+                                    <th>Mã số sinh viên</th>
+                                    <th>Họ tên</th>
+                                    <th>Giới tính</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Nơi sinh</th>
+                                    <th>Lớp</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Email</th>
+                                    <th>Ngành</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {% for student in s %}
+                                <tr>
+                                    <td class="text-center">{{ forloop.counter }}</td>
+                                    <td>
+                                        {% if student.profile_pic == "" %}
+                                            Không có hình ảnh
+                                        {% else %}
+                                            <img class="img img-fluid mb-2" height="50" width="50"
+                                                 src="{{ student.profile_pic.url }}" alt="">
+                                        {% endif %}
+                                    </td>
+                                    <td>{{student.admin_id}}</td>
+                                    <td>{{student.last_name}} {{student.first_name}}</td>
+                                    <td>{{student.gender}}</td>
+                                    <td>{{student.dob|date:"d/m/Y"}}</td>
+                                    <td>{{student.pob}}</td>
+                                    <td>{{student.grade.id}}</td>
+                                    <td>{{student.number}}</td>
+                                    <td>{{student.address}}</td>
+                                    <td>{{student.admin.email}}</td>
+                                    <td>{{student.major.name}}</td>
+{#                                    <td>#}
+{#                                        {% if student.profile_pic == ""  %}#}
+{#                                        No Image#}
+{#                                        {% else %}#}
+{#                                        <img class="img img-fluid mb-2" height="56" width="56"#}
+{#                                            src="{{student.profile_pic}}" alt="">#}
+{#                                        {% endif %}#}
+{#                                    </td>#}
+                                    
+                                    <td><a href="{% url 'edit_student' student.admin_id %}" class="btn btn-info"><i class="far fa-edit"></i> Sửa</a> -
+                                        <a href="{% url 'delete_student' student.admin_id %}" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa {{student.student.last_name}} {{student.student.first_name}}?')"><i class="far fa-trash-alt"></i> Xóa</a>
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                        {% if s.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page=1">&laquo Đầu</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ s.previous_page_number }}">Trước</a></li>
+                        {% endif %}
+                            {% for i in nums %}
+                                <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                            {% endfor %}
+{#                        <li class="page-item disabled"><a href="#" class="page-link"> Trang {{ s.number }} của {{ s.paginator.num_pages }}</a></li>#}
+                    {% if s.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ s.next_page_number }}">Tiếp</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ s.paginator.num_pages }}">Cuối &raquo</a></li>
+                    {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

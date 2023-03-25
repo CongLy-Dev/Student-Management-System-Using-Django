@@ -1,0 +1,48 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="float: right;">
+                            <a href="{% url 'add_department' %}" class="btn btn-success" ><i class="fas fa-plus"></i> Thêm</a>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead class="table-info text-primary text-center">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã bộ môn</th>
+                                    <th>Bộ môn</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for department in departments %}
+                                <tr>
+                                    <td class="text-center">{{ forloop.counter }}</td>
+                                    <td>{{department.id}}</td>
+                                    <td>{{department.name}}</td>
+                                    <td class="text-center">
+                                        <a href="{% url 'edit_department' department.id %}" class="btn btn-info"><i class="far fa-edit"></i> Sửa</a> -
+                                        <a href="{% url 'delete_department' department.id %}" onclick="return confirm('Bạn có chắc chắn muốn xóa bộ môn {{department.name}}?')" class="btn btn-danger"><i class="far fa-trash-alt"></i> Xóa</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
