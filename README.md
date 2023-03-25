@@ -34,11 +34,10 @@ This is a Management system for students of the College of Rural Development.
 
 ## 📸 ScreenShots
 
-<img src="ss/1.png"/>
-<img src="ss/2.png"/>
-<img src="ss/3.png"/>
-<img src="ss/4.png"/>
-<img src="ss/5.png"/>
+<img src="Screenshots/1.jpg"/>
+<img src="Screenshots/2.jpg"/>
+<img src="Screenshots/ad5.jpg"/>
+
 
 | Admin| Staff| Student |
 |------|-------|---------|
