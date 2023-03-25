@@ -41,14 +41,14 @@ This is a Management system for students of the College of Rural Development.
 <img src="Screenshots/st.jpg"/>
 
 
-| Admin| Staff| Student |
+| Admin| Teacher| Student |
 |------|-------|---------|
-|<img src="Screenshots/ad.jpg" width="400">|<img src="ss/staff1.png" width="400">|<img src="ss/student1.png" width="400">|
-|<img src="Screenshots/ad1.jpg" width="400">|<img src="ss/staff2.png" width="400">|<img src="ss/student2.png" width="400">|
-|<img src="Screenshots/ad2.jpg" width="400">|<img src="ss/staff3.png" width="400">|<img src="ss/student3.png" width="400">|
-|<img src="Screenshots/ad3.jpg" width="400">|<img src="ss/staff4.png" width="400">|<img src="ss/student4.png" width="400">|
-|<img src="Screenshots/ad5.jpg" width="400">|<img src="ss/staff5.png" width="400">|<img src="ss/student5.png" width="400">|
-|<img src="Screenshots/ad6.jpg" width="400">|<img src="ss/staff6.png" width="400">|<img src="ss/student6.png" width="400">|
+|<img src="Screenshots/ad.jpg" width="400">|<img src="Screenshots/tc.jpg" width="400">|<img src="Screenshots/st.jpg" width="400">|
+|<img src="Screenshots/ad1.jpg" width="400">|<img src="Screenshots/tc1.jpg" width="400">|<img src="Screenshots/st1.jpg" width="400">|
+|<img src="Screenshots/ad2.jpg" width="400">|<img src="Screenshots/tc2.jpg" width="400">|<img src="Screenshots/st2.jpg" width="400">|
+|<img src="Screenshots/ad3.jpg" width="400">|<img src="Screenshots/tc3.jpg" width="400">|<img src="Screenshots/st3.jpg" width="400">|
+|<img src="Screenshots/ad5.jpg" width="400">|<img src="Screenshots/tc4.jpg" width="400">|<img src="Screenshots/st4.jpg" width="400">|
+|<img src="Screenshots/ad6.jpg" width="400">|<img src="Screenshots/tc5.jpg" width="400">|<img src="Screenshots/st5.jpg" width="400">|
 |<img src="Screenshots/ad7.jpg" width="400">|
 
 ## Install and Run this project
