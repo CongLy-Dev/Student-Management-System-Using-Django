@@ -32,21 +32,24 @@ This is a Management system for students of the College of Rural Development.
 6. Send Feedback to Trainning Department
 
 
-## 📸 ScreenShots
+## ScreenShots
 
 <img src="Screenshots/1.jpg"/>
+
 <img src="Screenshots/2.jpg"/>
-<img src="Screenshots/ad5.jpg"/>
+
+<img src="Screenshots/st.jpg"/>
 
 
 | Admin| Staff| Student |
 |------|-------|---------|
-|<img src="ss/admin5.png" width="400">|<img src="ss/staff1.png" width="400">|<img src="ss/student1.png" width="400">|
-|<img src="ss/admin2.png" width="400">|<img src="ss/staff2.png" width="400">|<img src="ss/student2.png" width="400">|
-|<img src="ss/admin3.png" width="400">|<img src="ss/staff3.png" width="400">|<img src="ss/student3.png" width="400">|
-|<img src="ss/admin4.png" width="400">|<img src="ss/staff4.png" width="400">|<img src="ss/student4.png" width="400">|
-|<img src="ss/admin1.png" width="400">|<img src="ss/staff5.png" width="400">|<img src="ss/student5.png" width="400">|
-|<img src="ss/admin6.png" width="400">|<img src="ss/staff6.png" width="400">|<img src="ss/student6.png" width="400">|
+|<img src="Screenshots/ad.jpg" width="400">|<img src="ss/staff1.png" width="400">|<img src="ss/student1.png" width="400">|
+|<img src="Screenshots/ad1.jpg" width="400">|<img src="ss/staff2.png" width="400">|<img src="ss/student2.png" width="400">|
+|<img src="Screenshots/ad2.jpg" width="400">|<img src="ss/staff3.png" width="400">|<img src="ss/student3.png" width="400">|
+|<img src="Screenshots/ad3.jpg" width="400">|<img src="ss/staff4.png" width="400">|<img src="ss/student4.png" width="400">|
+|<img src="Screenshots/ad5.jpg" width="400">|<img src="ss/staff5.png" width="400">|<img src="ss/student5.png" width="400">|
+|<img src="Screenshots/ad6.jpg" width="400">|<img src="ss/staff6.png" width="400">|<img src="ss/student6.png" width="400">|
+|<img src="Screenshots/ad7.jpg" width="400">|
 
 ## Install and Run this project
 
